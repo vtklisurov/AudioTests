@@ -1,0 +1,1 @@
+{ "Questions" : [{"question_type": "MultiChoiceAudio", "question_text": "асда", "question_audio": "../Audio/file_example_MP3_700KB.mp3", "available_answers": ["../Audio/sample1.mp3", "../Audio/sample1.mp3", "../Audio/file_example_MP3_700KB.mp3"], "answer": "../Audio/2"}] }

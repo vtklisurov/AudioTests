@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="CreateTest.css">
+<script src="./formCreation.js?2"></script>
+<title>Create Test</title>
+</head>
+
+<body>
+<header class="pageHeding">
+        <a class="FindTest" href="../FindTest/FindTest.php"><span></span>Търси Тест</a>
+        <a class="Homepage" href="../"><span></span>Начална страница</a>
+</header>
+<form name="theForm" id="testForm" method="post" action="./saveTest.php" enctype="multipart/form-data">
+  <div id="name">
+  <label for="testName">Име на теста</label><br>
+  <input type="text" id="testName" name="testName" required><br>
+  </div>
+</form>
+<br>
+<div id="controls">
+	<button onclick="addQuestion(1)">Добави въпрос с множество текстови отговори</button>
+	<button onclick="addQuestion(2)">Добави въпрос с множество аудио отговори</button></br>
+	<button onclick="addQuestion(3)">Добави въпрос с множество отговори-изображения</button>
+	<button onclick="addQuestion(4)">Добави въпрос със свободен отговор</button>
+	<br>
+	<button id="btnSubmit" type="submit" form="testForm">Качи теста</button>
+</div>
+
+<br>
+
+</body>

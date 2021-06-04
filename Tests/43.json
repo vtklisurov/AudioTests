@@ -1,0 +1,1 @@
+{ "Questions" : [{"question_type": "MultiChoicePicture", "question_text": "question", "question_audio": "./Audio/ЛЕКЦИЯ 2.pdf", "available_answers": ["./Images/ЛЕКЦИЯ 3.pdf", "./Images/ЛЕКЦИЯ 7.pdf", "./Images/"], "answer": "./Images/3"}] }
