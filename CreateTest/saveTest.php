@@ -10,7 +10,7 @@ $dbname = "audio_tests";
 $audioPath= "../Audio/";
 $imagePath= "../Images/";
 $testPath= "../Tests/";
-$domain="http://78.90.25.79";
+$domain="http://ec2-52-54-235-211.compute-1.amazonaws.com/";
 
 
 //connect to the database
