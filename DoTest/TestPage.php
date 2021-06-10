@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<title>Test Page</title>
 		<link rel="stylesheet" href="./TestPage.css">
-		<script src="Test.js?6"></script>
+		<script src="test.js?6"></script>
 		<?php
 			if(isset($_GET["TestID"])){
 			    $serverName     = "ec2-52-54-235-211.compute-1.amazonaws.com:3306";
