@@ -2,9 +2,9 @@
 header('charset=utf-8');
 
 //setup variables
-$servername = "78.90.25.79:3308";
-$username = "root";
-$password = "";
+$serverName     = "http://ec2-52-54-235-211.compute-1.amazonaws.com/:3306";
+$userName       = "root";
+$password       = "todor is my dad";
 $dbname = "audio_tests";
 
 $audioPath= "../Audio/";
