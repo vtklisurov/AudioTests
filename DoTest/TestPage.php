@@ -7,7 +7,7 @@
 		<script src="Test.js?6"></script>
 		<?php
 			if(isset($_GET["TestID"])){
-			    $serverName     = "http://ec2-52-54-235-211.compute-1.amazonaws.com/:3306";
+			    $serverName     = "http://ec2-52-54-235-211.compute-1.amazonaws.com:3306";
                 $userName       = "root";
                 $password       = "todor is my dad";
                 $dbName         = "audio_tests";
