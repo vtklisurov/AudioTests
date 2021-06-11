@@ -19,7 +19,7 @@
         <?php
             if(isset($_POST['submit']))
             {
-				include '../credentials.php'
+				include '../credentials.php';
                 $searchValue    = filter_var($_POST["searchVal"], FILTER_SANITIZE_STRING);
 
 

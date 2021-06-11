@@ -2,7 +2,7 @@
 header('charset=utf-8');
 
 //setup variables
-include '../credentials.php'
+include '../credentials.php';
 $audioPath= "../Audio/";
 $imagePath= "../Images/";
 $testPath= "../Tests/";
