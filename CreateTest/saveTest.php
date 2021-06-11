@@ -2,10 +2,6 @@
 header('charset=utf-8');
 
 //setup variables
-$serverName     = "ec2-52-54-235-211.compute-1.amazonaws.com:3306";
-$userName       = "root";
-$password       = "todor is my dad";
-$dbname = "audio_tests";
 
 $audioPath= "../Audio/";
 $imagePath= "../Images/";
@@ -14,7 +10,7 @@ $domain="http://ec2-52-54-235-211.compute-1.amazonaws.com/";
 
 
 //connect to the database
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli();
 
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);

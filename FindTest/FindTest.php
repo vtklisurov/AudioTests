@@ -21,13 +21,9 @@
             {
                 $searchValue    = filter_var($_POST["searchVal"], FILTER_SANITIZE_STRING);
 
-                $serverName     = "ec2-52-54-235-211.compute-1.amazonaws.com:3306";
-                $userName       = "root";
-                $password       = "todor is my dad";
-                $dbName         = "audio_tests";
 
                 // Create connection
-                $conn = new mysqli($serverName, $userName, $password, $dbName);
+                $conn = new mysqli();
                 // Check connection
                 if ($conn->connect_error) {
                   die("Connection failed: " . $conn->connect_error);
