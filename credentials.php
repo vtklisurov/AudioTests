@@ -1,6 +1,6 @@
 <?php	
-	$serverName     = "ec2-52-54-235-211.compute-1.amazonaws.com:3306";
-    $userName       = "root";
-    $password       = "todor is my dad";
+	$serverName     = "database-audio-tests.chvvgimintvl.us-east-1.rds.amazonaws.com:3306";
+    $userName       = "admin";
+    $password       = "shestichko1";
     $dbName         = "audio_tests";
 ?>
