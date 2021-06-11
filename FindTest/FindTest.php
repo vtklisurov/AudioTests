@@ -19,11 +19,12 @@
         <?php
             if(isset($_POST['submit']))
             {
+				include '../credentials.php'
                 $searchValue    = filter_var($_POST["searchVal"], FILTER_SANITIZE_STRING);
 
 
                 // Create connection
-                $conn = new mysqli(getenv(mysql.default.host), getenv(mysql.default.user), getenv(mysql.default.password), "audio-tests");
+                $conn = new mysqli($serverName, $userName, $password, $dbName);
                 // Check connection
                 if ($conn->connect_error) {
                   die("Connection failed: " . $conn->connect_error);

@@ -6,11 +6,12 @@
 		<link rel="stylesheet" href="./TestPage.css">
 		<script src="test.js?6"></script>
 		<?php
+		include '../credentials.php'
 			if(isset($_GET["TestID"])){
 
                 $TestID         = htmlspecialchars($_GET["TestID"]);
                 // Create connection
-                $conn = new mysqli(getenv(mysql.default.host), getenv(mysql.default.user), getenv(mysql.default.password), "audio-tests");
+                $conn = new mysqli($serverName, $userName, $password, $dbName);
                 // Check connection
                 if ($conn->connect_error) {
                     die("Connection failed: " . $conn->connect_error);

@@ -2,7 +2,7 @@
 header('charset=utf-8');
 
 //setup variables
-
+include '../credentials.php'
 $audioPath= "../Audio/";
 $imagePath= "../Images/";
 $testPath= "../Tests/";
@@ -10,7 +10,7 @@ $domain="http://ec2-52-54-235-211.compute-1.amazonaws.com/";
 
 
 //connect to the database
-$conn = new mysqli(getenv(mysql.default.host), getenv(mysql.default.user), getenv(mysql.default.password), "audio-tests");
+$conn = new mysqli($serverName, $userName, $password, $dbName);
 
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
