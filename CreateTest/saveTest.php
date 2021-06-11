@@ -1,6 +1,10 @@
 <?php
 header('charset=utf-8');
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 //setup variables
 include '../credentials.php';
 $audioPath= "../Audio/";
@@ -30,7 +34,7 @@ while ($row = $result->fetch_assoc()) {
 //get the name of the test and sanitize it because it will be going into the database
 $testName = filter_var($_POST["testName"], FILTER_SANITIZE_STRING);
 
-//declare the array fro which the JSON will be created, as well as the indeces for the audio files, the images and the questions, needing extra files
+//declare the array from which the JSON will be created, as well as the indeces for the audio files, the images and the questions, needing extra files
 $arr = [];
 $audioindex=0;
 $imageindex=0;
