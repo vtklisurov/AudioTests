@@ -10,7 +10,7 @@ $domain="http://ec2-52-54-235-211.compute-1.amazonaws.com/";
 
 
 //connect to the database
-$conn = new mysqli();
+$conn = new mysqli(getenv(mysql.default.host), getenv(mysql.default.user), getenv(mysql.default.password), "audio-tests");
 
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
