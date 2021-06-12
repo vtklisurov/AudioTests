@@ -1,6 +1,6 @@
 <?php
 header('charset=utf-8');
-header('Content-Type: text/html');
+header('Content-Type: text/html\n\n');
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
