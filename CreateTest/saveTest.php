@@ -10,7 +10,7 @@ include '../credentials.php';
 $audioPath= "../Audio/";
 $imagePath= "../Images/";
 $testPath= "../Tests/";
-$domain="http://ec2-52-54-235-211.compute-1.amazonaws.com/";
+$domain="http://ec2-52-54-235-211.compute-1.amazonaws.com";
 
 
 //connect to the database
@@ -261,7 +261,7 @@ $stmt->close();
 $conn->close();
 
 //output a message on the browser and redirect back to the homepage
-//header('Content-Type: text/html\n\n; charset=utf-8');
+
 echo "<!DOCTYPE html>
 <html>
 <body style='text-align:center; background-color: #EDE7E3;'>
@@ -269,7 +269,7 @@ echo "<!DOCTYPE html>
 <p>Ще бъдете пренасочени след 5 секунди</p>
 <script>
 var timer = setTimeout(function() {
-window.location='".$domain."/audiotests/'
+window.location='".$domain'
 }, 5000);
 </script>
 </body>
