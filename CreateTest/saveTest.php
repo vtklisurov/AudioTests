@@ -1,9 +1,9 @@
 <?php
 header('Content-Type: text/html; charset=utf-8');
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+//ini_set('display_errors', 1);
+//ini_set('display_startup_errors', 1);
+//error_reporting(E_ALL);
 
 //setup variables
 include '../credentials.php';
@@ -261,7 +261,7 @@ $stmt->close();
 $conn->close();
 
 //output a message on the browser and redirect back to the homepage
-header('Content-Type: text/html; charset=utf-8');
+
 echo "<!DOCTYPE html>
 <html>
 <body style='text-align:center; background-color: #EDE7E3;'>
@@ -269,7 +269,7 @@ echo "<!DOCTYPE html>
 <p>Ще бъдете пренасочени след 5 секунди</p>
 <script>
 var timer = setTimeout(function() {
-window.location='".$domain'
+window.location='".$domain.'
 }, 5000);
 </script>
 </body>
