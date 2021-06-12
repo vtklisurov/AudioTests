@@ -260,7 +260,17 @@ $stmt->execute();
 $stmt->close();
 $conn->close();
 
-echo "done"
+echo "<!DOCTYPE html>
+<html>
+<body>
+
+<h1>My First Heading</h1>
+
+<p>My first paragraph.</p>
+
+</body>
+</html>
+"
 //output a message on the browser and redirect back to the homepage
 //echo "<!DOCTYPE html>
 //	<html>
