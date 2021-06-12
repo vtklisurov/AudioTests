@@ -1,5 +1,5 @@
 <?php
-header('Content-Type: text/html\n\n; charset=utf-8');
+header('Content-Type: text/html; charset=utf-8');
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -261,7 +261,7 @@ $stmt->close();
 $conn->close();
 
 //output a message on the browser and redirect back to the homepage
-
+header('Content-Type: text/html; charset=utf-8');
 echo "<!DOCTYPE html>
 <html>
 <body style='text-align:center; background-color: #EDE7E3;'>
