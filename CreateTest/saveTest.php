@@ -1,5 +1,6 @@
 <?php
 header('charset=utf-8');
+header('Content-Type: text/html');
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -261,5 +262,16 @@ $stmt->close();
 $conn->close();
 
 //output a message on the browser and redirect back to the homepage
-echo "<html><body style='text-align:center; background-color: #EDE7E3;'><h1>Тестът беше записан</h1><p>Ще бъдете пренасочени след 5 секунди</p><script>var timer = setTimeout(function() {window.location='".$domain."/audiotests/'}, 5000);</script></body></html>";
+echo "<!DOCTYPE html>
+<html>
+<body style='text-align:center; background-color: #EDE7E3;'>
+<h1>Тестът беше записан</h1>
+<p>Ще бъдете пренасочени след 5 секунди</p>
+<script>
+var timer = setTimeout(function() {
+window.location='".$domain."/audiotests/'
+}, 5000);
+</script>
+</body>
+</html>";
 ?>
