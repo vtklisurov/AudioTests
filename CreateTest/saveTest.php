@@ -1,5 +1,5 @@
 <?php
-header('charset=utf-8');
+header(header("Location: http://ec2-52-54-235-211.compute-1.amazonaws.com/AudioTests/"););
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -259,8 +259,6 @@ $stmt->execute();
 
 $stmt->close();
 $conn->close();
-
-header('charset=utf-8');
 
 //output a message on the browser and redirect back to the homepage
 echo "<!DOCTYPE html>
