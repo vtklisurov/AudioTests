@@ -3,4 +3,7 @@
     $userName       = "admin";
     $password       = "shestichko1";
     $dbName         = "audio_tests";
+	$key            ="";
+	$secretkey      ="";
+	$sessiontoken   ="";
 ?>

@@ -13,8 +13,8 @@ $s3 = new Aws\S3\S3Client([
 	'region'  => 'us-east-1',
 	'version' => 'latest',
 	'credentials' => [
-	    'key'    => "ASIA5OWU37NQEPPCCCMD",
-	    'secret' => "JbpYHbrkCkULsq/IUn1oKEN6uqRAU/XmLAtwWRyU",
+	    'key'    => $key,
+	    'secret' => $secretkey,
 	]
 ]);
 
