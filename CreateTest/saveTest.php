@@ -1,5 +1,6 @@
 <?php
 header('Content-Type: text/html; charset=utf-8');
+require '/../../../../../home/ecw-user/vendor/autoload.php';
 
 //ini_set('display_errors', 1);
 //ini_set('display_startup_errors', 1);
@@ -7,6 +8,29 @@ header('Content-Type: text/html; charset=utf-8');
 
 //setup variables
 include '../credentials.php';
+
+$s3 = new Aws\S3\S3Client([
+	'region'  => 'us-east-1',
+	'version' => 'latest',
+	'credentials' => [
+	    'key'    => "key-04fc20666dd2e24eb",
+	    'secret' => "AAABAFY8gNlkV3a+hGIYLuXMHgHcELoRPpyiE1vCJhZL6HgIrmWjOlDzF82AZhmA
+PGA3JjFRxG4KEM5TbT1zk4AE81j/OsxxUReDec/KEUUCsmbTLB91975mBT6SJc4v
+t1ekbqtlcnM5q3IQ7Bi8ywymF/Dcnbs77ZrGV68bN8/0yEAPAazr7huqbzSYJfRa
+tWJTHxua70ey7oF8SWTWOwNYGRfp27no1aAdFRVoMhiR2n2Vvk8DlVPRlZYiPrgN
+igFx16viITssmzUF8hLieRluC/TU2vtfP/Nvs9lCyYUt9jPfPUghbYYMm36b/ukk
+pb7PXevZNhUwm+eRbnGk05277EkAAACBAPGgAtaLx1TM/jEoAIMyZIuzSXoA+y44
+agNyVVMDrCpSWUFzqpRioVOJ4m7lo/f2dUfZWF0/KVqB5u/Gx6ur63mBG8Ix7DVO
+aP6OCNVvmyTbTwZk/CyzMb1B9M+AtXqh/9KAjHHKnWc3deyXINuEgVs356d3m86b
+uX3MWET6CDV9AAAAgQDacvBOQJOtNgvItSksmzMOp0FL1Efbjd6UrrjKO0MWfJtG
+4OyYF05xXKOGIiPqs0+053VmEpwFJJ2+gd+SAQgQkiZj0iYeUVicTfgfFanCceHh
+AH60zBBayLp73kWBE3VPD7+6SwnWToyY6mgqhHoPFwQimyXn/B4HKXsEUclK2wAA
+AIB17kVA9aFHJ0qbKxKeNV3/OWsS6///TCO3QWozhziWnu2hn7mEqPbUXyhhnC1c
+iXSwcBkC6+m7lSM6VR48NZziAf9lJhC8ZSYyjpZ0drS15u+c88u99MazDD4d69Y8
+vnnUv54jtImO171HzpK8AevSDVjoSS9pge6+r/jhkgOAPQ==",
+	]
+]);
+
 $audioPath= "../Audio/";
 $imagePath= "../Images/";
 $testPath= "../Tests/";
@@ -83,7 +107,16 @@ for ($x = 0; $x <= count($_POST["type"])-1; $x++) {
 		}
 		
 		//save the file if it exists
-		if (isset($_FILES['question_audio']['tmp_name'][$x])) move_uploaded_file($_FILES["question_audio"]["tmp_name"][$x], $audioPath . $id . "-". $audioindex++ . '.' . @end((explode(".", $_FILES["question_audio"]["name"][$x]))) );
+		if (isset($_FILES['question_audio']['tmp_name'][$x])) {
+			//move_uploaded_file($_FILES["question_audio"]["tmp_name"][$x], $audioPath . $id . "-". $audioindex++ . '.' . @end((explode(".", $_FILES["question_audio"]["name"][$x]))) );
+			
+			$s3->putObject([
+				'Bucket' => 'audio-tests-project',
+				'Key'    => $audioPath . $id . "-". $audioindex++ . '.' . @end((explode(".", $_FILES["question_audio"]["name"][$x]))),
+				'SourceFile' => $_FILES['question_audio']['tmp_name'][$x]			
+			]);
+		
+		}
 		
 		//put it into the JSON
 		array_push($arr,'"question_type": "'.$type.'", "question_text": "' . $text .'", "question_audio": "' . $qaudio . '", "available_answers": ["'. $answer1 . '", "'. $answer2 . '", "' . $answer3 . '"], "answer": "' . $correct . '"' );
