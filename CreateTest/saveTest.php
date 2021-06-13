@@ -9,15 +9,15 @@ header('Content-Type: text/html; charset=utf-8');
 //setup variables
 include '../credentials.php';
 
-$s3 = new Aws\S3\S3Client([
-	'region'  => 'us-east-1',
-	'version' => 'latest',
-	'credentials' => [
-	    'key'    => $key,
-	    'secret' => $secretkey,
-		'token' => $sessiontoken,
-	]
-]);
+//$s3 = new Aws\S3\S3Client([
+//	'region'  => 'us-east-1',
+//	'version' => 'latest',
+//	'credentials' => [
+//	    'key'    => $key,
+//	    'secret' => $secretkey,
+//		'token' => $sessiontoken,
+//	]
+//]);
 
 $audioPath= "../Audio/";
 $imagePath= "../Images/";
