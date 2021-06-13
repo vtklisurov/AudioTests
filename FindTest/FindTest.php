@@ -29,6 +29,7 @@
                 if ($conn->connect_error) {
                   die("Connection failed: " . $conn->connect_error);
                 }
+				$conn->set_charset("utf8")
                 $searchValue = "%".$searchValue."%";
                 $sql = "SELECT id, name, added  FROM tests WHERE name LIKE ? ";
                 $stmt = $conn->prepare($sql);
