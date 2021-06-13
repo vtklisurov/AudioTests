@@ -22,7 +22,7 @@ include '../credentials.php';
 $audioPath= "../Audio/";
 $imagePath= "../Images/";
 $testPath= "../Tests/";
-$domain="http://ec2-52-54-235-211.compute-1.amazonaws.com";
+$domain="http://ec2-54-163-165-88.compute-1.amazonaws.com/";
 
 
 //connect to the database
