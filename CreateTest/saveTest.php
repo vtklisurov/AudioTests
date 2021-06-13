@@ -15,6 +15,7 @@ $s3 = new Aws\S3\S3Client([
 	'credentials' => [
 	    'key'    => $key,
 	    'secret' => $secretkey,
+		'token' => $token,
 	]
 ]);
 
