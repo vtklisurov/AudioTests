@@ -161,10 +161,32 @@ for ($x = 0; $x <= count($_POST["type"])-1; $x++) {
 		}
 
 		//save the files
-		if (isset($_FILES['question_audio']['tmp_name'][$x])) move_uploaded_file($_FILES["question_audio"]["tmp_name"][$x], $audioPath . $id . "-". $audioindex++ . '.' . @end((explode(".", $_FILES["question_audio"]["name"][$x]))) );
-		move_uploaded_file($_FILES["answer1"]["tmp_name"][$filequestion], $audioPath . $id . "-". $audioindex++ . '.' . @end((explode(".", $_FILES["answer1"]["name"][$filequestion]))) );
-		move_uploaded_file($_FILES["answer2"]["tmp_name"][$filequestion], $audioPath . $id . "-". $audioindex++ . '.' . @end((explode(".", $_FILES["answer2"]["name"][$filequestion]))) );
-		move_uploaded_file($_FILES["answer3"]["tmp_name"][$filequestion], $audioPath . $id . "-". $audioindex++ . '.' . @end((explode(".", $_FILES["answer3"]["name"][$filequestion]))) );	
+		if (isset($_FILES['question_audio']['tmp_name'][$x])) {
+			//move_uploaded_file($_FILES["question_audio"]["tmp_name"][$x], $audioPath . $id . "-". $audioindex++ . '.' . @end((explode(".", $_FILES["question_audio"]["name"][$x]))) );
+			$s3->putObject([
+				'Bucket' => 'audio-tests-project',
+				'Key'    => $audioPath . $id . "-". $audioindex++ . '.' . @end((explode(".", $_FILES["question_audio"]["name"][$x]))),
+				'SourceFile' => $_FILES['question_audio']['tmp_name'][$x]			
+			]);
+		}
+		$s3->putObject([
+			'Bucket' => 'audio-tests-project',
+			'Key'    => $audioPath . $id . "-". $audioindex++ . '.' . @end((explode(".", $_FILES["answer1"]["name"][$filequestion]))),
+			'SourceFile' => $_FILES["answer1"]["tmp_name"][$filequestion]			
+		]);
+		$s3->putObject([
+			'Bucket' => 'audio-tests-project',
+			'Key'    => $audioPath . $id . "-". $audioindex++ . '.' . @end((explode(".", $_FILES["answer2"]["name"][$filequestion]))),
+			'SourceFile' => $_FILES["answer2"]["tmp_name"][$filequestion]			
+		]);
+		$s3->putObject([
+			'Bucket' => 'audio-tests-project',
+			'Key'    => $audioPath . $id . "-". $audioindex++ . '.' . @end((explode(".", $_FILES["answer3"]["name"][$filequestion]))),
+			'SourceFile' => $_FILES["answer3"]["tmp_name"][$filequestion]			
+		]);
+		//move_uploaded_file($_FILES["answer1"]["tmp_name"][$filequestion], $audioPath . $id . "-". $audioindex++ . '.' . @end((explode(".", $_FILES["answer1"]["name"][$filequestion]))) );
+		//move_uploaded_file($_FILES["answer2"]["tmp_name"][$filequestion], $audioPath . $id . "-". $audioindex++ . '.' . @end((explode(".", $_FILES["answer2"]["name"][$filequestion]))) );
+		//move_uploaded_file($_FILES["answer3"]["tmp_name"][$filequestion], $audioPath . $id . "-". $audioindex++ . '.' . @end((explode(".", $_FILES["answer3"]["name"][$filequestion]))) );	
 		
 
 		//put it into the JSONS
@@ -221,10 +243,36 @@ for ($x = 0; $x <= count($_POST["type"])-1; $x++) {
 		}
 
 		//save the files
-		if (isset($_FILES['question_audio']['tmp_name'][$x])) move_uploaded_file($_FILES["question_audio"]["tmp_name"][$x], $audioPath . $id . "-". $audioindex++ . '.' . @end((explode(".", $_FILES["question_audio"]["name"][$x]))) );
-		move_uploaded_file($_FILES["answer1"]["tmp_name"][$filequestion], $imagePath . $id . "-". $imageindex++ . '.' . @end((explode(".", $_FILES["answer1"]["name"][$filequestion]))) );
-		move_uploaded_file($_FILES["answer2"]["tmp_name"][$filequestion], $imagePath . $id . "-". $imageindex++ . '.' . @end((explode(".", $_FILES["answer2"]["name"][$filequestion]))) );
-		move_uploaded_file($_FILES["answer3"]["tmp_name"][$filequestion], $imagePath . $id . "-". $imageindex++ . '.' . @end((explode(".", $_FILES["answer3"]["name"][$filequestion]))) );
+		if (isset($_FILES['question_audio']['tmp_name'][$x])){
+			//move_uploaded_file($_FILES["question_audio"]["tmp_name"][$x], $audioPath . $id . "-". $audioindex++ . '.' . @end((explode(".", $_FILES["question_audio"]["name"][$x]))) );
+			$s3->putObject([
+				'Bucket' => 'audio-tests-project',
+				'Key'    => $audioPath . $id . "-". $audioindex++ . '.' . @end((explode(".", $_FILES["question_audio"]["name"][$x]))),
+				'SourceFile' => $_FILES['question_audio']['tmp_name'][$x]			
+			]);	
+		}
+		$s3->putObject([
+			'Bucket' => 'audio-tests-project',
+			'Key'    => $imagePath . $id . "-". $imageindex++ . '.' . @end((explode(".", $_FILES["answer1"]["name"][$filequestion]))),
+			'SourceFile' => $_FILES["answer1"]["tmp_name"][$filequestion]			
+		]);
+		$s3->putObject([
+			'Bucket' => 'audio-tests-project',
+			'Key'    => $imagePath . $id . "-". $imageindex++ . '.' . @end((explode(".", $_FILES["answer2"]["name"][$filequestion]))),
+			'SourceFile' => $_FILES["answer2"]["tmp_name"][$filequestion]			
+		]);
+		$s3->putObject([
+			'Bucket' => 'audio-tests-project',
+			'Key'    => $imagePath . $id . "-". $imageindex++ . '.' . @end((explode(".", $_FILES["answer3"]["name"][$filequestion]))),
+			'SourceFile' => $_FILES["answer3"]["tmp_name"][$filequestion]			
+		]);
+		
+		
+		
+		
+		//move_uploaded_file($_FILES["answer1"]["tmp_name"][$filequestion], $imagePath . $id . "-". $imageindex++ . '.' . @end((explode(".", $_FILES["answer1"]["name"][$filequestion]))) );
+		//move_uploaded_file($_FILES["answer2"]["tmp_name"][$filequestion], $imagePath . $id . "-". $imageindex++ . '.' . @end((explode(".", $_FILES["answer2"]["name"][$filequestion]))) );
+		//move_uploaded_file($_FILES["answer3"]["tmp_name"][$filequestion], $imagePath . $id . "-". $imageindex++ . '.' . @end((explode(".", $_FILES["answer3"]["name"][$filequestion]))) );
 	
 		//put it into the json
 		array_push($arr,'"question_type": "'.$type.'", "question_text": "' . $text .'", "question_audio": "' . $qaudio . '", "available_answers": ["'. $answer1 . '", "'. $answer2 . '", "' . $answer3 . '"], "answer": "' . $correct . '"' );
@@ -242,7 +290,14 @@ for ($x = 0; $x <= count($_POST["type"])-1; $x++) {
 		$correct = $_POST["correct"][$x];
 		
 		//save the file if it exists
-		if (isset($_FILES['question_audio']['tmp_name'][$x])) move_uploaded_file($_FILES["question_audio"]["tmp_name"][$x], $audioPath . $id . "-". $audioindex++ . '.' . @end((explode(".", $_FILES["question_audio"]["name"][$x]))) );
+		if (isset($_FILES['question_audio']['tmp_name'][$x])){
+			//move_uploaded_file($_FILES["question_audio"]["tmp_name"][$x], $audioPath . $id . "-". $audioindex++ . '.' . @end((explode(".", $_FILES["question_audio"]["name"][$x]))) );
+			$s3->putObject([
+				'Bucket' => 'audio-tests-project',
+				'Key'    => $audioPath . $id . "-". $audioindex++ . '.' . @end((explode(".", $_FILES["question_audio"]["name"][$x]))),
+				'SourceFile' => $_FILES['question_audio']['tmp_name'][$x]			
+			]);	
+		}
 	
 		//put it into the json
 		array_push($arr,'"question_type": "'.$type.'", "question_text": "' . $text .'", "question_audio": "' . $qaudio . '", "answer": "' . $correct . '"');
