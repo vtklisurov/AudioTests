@@ -3,7 +3,7 @@
     $userName       = "admin";
     $password       = "shestichko1";
     $dbName         = "audio_tests";
-	$key            ="ASIA5OWU37NQOLFHTBHN";
-	$secretkey      ="G8288jEYQTJ8EoIO/C2UL4vANpejkFtc7wKKmWxQ";
-	$sessiontoken   ="FwoGZXIvYXdzEGAaDFXZ6I0mk1nlq2yHJyLHAZ4XU4XgJ6CO90NUI0paPmYUwVMs8/JoF60CdJx4nWPxmkwUTKIMbkOyP2X8Pw1CqopvVNrfmnXbhWm+HsfNWW8Qc4bYlLfFFcT5oIpddrxs8vv+8qz5TEWXMs6EJLLw+y+hQQ42kR72kSoEr2aLty0H0urLCIJA1FFrnoMruCMp06+ks+tu6T8wmPzgmnb9F6tjf0lxFjZxOo43uegVDqTadslWIeLM8Lrwh5vCnCERysxjW00iAmy374hQdC7ZDB7yawNCy0gonNadhgYyLfo2WTtkAsYV/839hOQa2oma1xyMbNk8cKDQ24AeKDIC5eOno+M3mHZDMDhDNg==";
+	$key            ="ASIA5OWU37NQAENSK3NJ";
+	$secretkey      ="AyCNrSD0ZDrh7bcUdAihwrdBDH5qVmWDVj+bktrJ";
+	$sessiontoken   ="FwoGZXIvYXdzEGUaDBm5Wc8bH5CpCGFmliLHAW8CBLkVqPDwpe8bSXbfQwEaA01I5H6byxHNCOLf8Qx+efLyNq+NZDjl1PaULpHjRali8xGmzn+NSK2yiPYSGQpVZw5HDgIBzR7Aa18DMdmVX2hXue5T+xNOc5FyD4p5VEmW55Ib0XNQRACmnLsYvoOv0EjEsNqloLLVjOqYYqW2iOr/HTemKOllQTqrENX+lZtxByRLmFZgBz1zms6+QWGt5UGM9AStSHFOkYfURiEjWHnuHujGSJIdvkUDsOK0EhU+ndjJ2zUo5+iehgYyLc/vsq1WYf+26Jt6jSadRcjcaGLvQ7r57j1o4TGw6ok3Up6Z0TAsG8Q5wFgvaA==";
 ?>
