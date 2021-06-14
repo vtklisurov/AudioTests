@@ -62,7 +62,7 @@ for ($x = 0; $x <= count($_POST["type"])-1; $x++) {
 	//check the file type of the question's audio
 	if (isset($_FILES['question_audio']['tmp_name'][$x]) && $_FILES['question_audio']['tmp_name'][$x] != "") {
 		$mime = finfo_file($finfo, $_FILES['question_audio']['tmp_name'][$x]);
-		if ($mime != 'audio/mpeg') {
+		if ($mime != 'audio/mpeg' && $mime != "application/octet-stream") {
 			echo "Wrong file - not question audio" . $x ."  - " . $mime . " instead";
 			die();
 		}
@@ -117,21 +117,21 @@ for ($x = 0; $x <= count($_POST["type"])-1; $x++) {
 		//check the file types
 		if (isset($_FILES['answer1']['tmp_name'][$filequestion]) && $_FILES['answer1']['tmp_name'][$filequestion] != "") {
 			$mime = finfo_file($finfo, $_FILES['answer1']['tmp_name'][$filequestion]);
-			if ($mime != 'audio/mpeg') {
+			if ($mime != 'audio/mpeg' && $mime != "application/octet-stream") {
 				echo "Wrong file - not answer audio - " . $mime . " instead";
 				die();
 			}
 		}
 		if (isset($_FILES['answer2']['tmp_name'][$filequestion]) && $_FILES['answer2']['tmp_name'][$filequestion] != "") {
 			$mime = finfo_file($finfo, $_FILES['answer2']['tmp_name'][$filequestion]);
-			if ($mime != 'audio/mpeg') {
+			if ($mime != 'audio/mpeg' && $mime != "application/octet-stream") {
 				echo "Wrong file - not answer audio - " . $mime . " instead";
 				die();
 			}
 		}
 		if (isset($_FILES['answer3']['tmp_name'][$filequestion]) && $_FILES['answer3']['tmp_name'][$filequestion] != "") {
 			$mime = finfo_file($finfo, $_FILES['answer3']['tmp_name'][$filequestion]);
-			if ($mime != 'audio/mpeg') {
+			if ($mime != 'audio/mpeg' && $mime != "application/octet-stream") {
 				echo "Wrong file - not answer audio - " . $mime . " instead";
 				die();
 			}
@@ -200,21 +200,21 @@ for ($x = 0; $x <= count($_POST["type"])-1; $x++) {
 		//check the file types
 		if (isset($_FILES['answer1']['tmp_name'][$filequestion]) && $_FILES['answer1']['tmp_name'][$filequestion] != "") {
 			$mime = finfo_file($finfo, $_FILES['answer1']['tmp_name'][$filequestion]);
-			if ($mime != 'image/jpeg') {
+			if ($mime != 'image/jpeg' && $mime != "application/octet-stream") {
 				echo "Wrong file - not an image - " . $mime . " instead";
 				die();
 			}
 		}
 		if (isset($_FILES['answer2']['tmp_name'][$filequestion]) && $_FILES['answer2']['tmp_name'][$filequestion] != "") {
 			$mime = finfo_file($finfo, $_FILES['answer2']['tmp_name'][$filequestion]);
-			if ($mime != 'image/jpeg') {
+			if ($mime != 'image/jpeg' && $mime != "application/octet-stream") {
 				echo "Wrong file - not an image - " . $mime . " instead";
 				die();
 			}
 		}
 		if (isset($_FILES['answer3']['tmp_name'][$filequestion]) && $_FILES['answer3']['tmp_name'][$filequestion] != "") {
 			$mime = finfo_file($finfo, $_FILES['answer3']['tmp_name'][$filequestion]);
-			if ($mime != 'image/jpeg') {
+			if ($mime != 'image/jpeg' && $mime != "application/octet-stream") {
 				echo "Wrong file - not an image - " . $mime . " instead" ;
 				die();
 			}
