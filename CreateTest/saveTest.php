@@ -62,7 +62,7 @@ for ($x = 0; $x <= count($_POST["type"])-1; $x++) {
 	//check the file type of the question's audio
 	if (isset($_FILES['question_audio']['tmp_name'][$x]) && $_FILES['question_audio']['tmp_name'][$x] != "") {
 		$mime = finfo_file($finfo, $_FILES['question_audio']['tmp_name'][$x]);
-		if ($mime != 'audio/mpeg') {
+		if ($mime != 'audio/mpeg' && $mime != "application/octet-stream") {
 			echo "Wrong file - not question audio" . $x ."  - " . $mime . " instead";
 			die();
 		}
