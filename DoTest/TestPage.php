@@ -6,7 +6,16 @@
 		<link rel="stylesheet" href="./TestPage.css">
 		<script src="test.js?6"></script>
 		<?php
-		include '../credentials.php';
+			include '../credentials.php';
+			$s3 = new Aws\S3\S3Client([
+				'region'  => 'us-east-1',
+				'version' => 'latest',
+				'credentials' => [
+					'key'    => $key,
+					'secret' => $secretkey,
+					'token' => $sessiontoken,
+				]
+			]);
 			if(isset($_GET["TestID"])){
 
                 $TestID         = htmlspecialchars($_GET["TestID"]);
@@ -27,6 +36,7 @@
                     // output data of each row
                     if($row = $result->fetch_assoc()) {
                         $filepath = $row["questions"];
+						
                     }
                     else{
                         $filepath ='./ExampleTest.json';

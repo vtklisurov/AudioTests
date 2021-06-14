@@ -19,8 +19,8 @@ $s3 = new Aws\S3\S3Client([
 	]
 ]);
 
-$audioPath= "../Audio/";
-$imagePath= "../Images/";
+$audioPath= "https://audio-tests-project.s3.amazonaws.com/Audio/";
+$imagePath= "https://audio-tests-project.s3.amazonaws.com/Images/";
 $testPath= "../Tests/";
 $domain="http://ec2-54-163-165-88.compute-1.amazonaws.com/";
 
