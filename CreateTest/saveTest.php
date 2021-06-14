@@ -99,9 +99,9 @@ for ($x = 0; $x <= count($_POST["type"])-1; $x++) {
 			move_uploaded_file($_FILES["question_audio"]["tmp_name"][$x], $audioPath . $id . "-". $audioindex++ . '.' . @end((explode(".", $_FILES["question_audio"]["name"][$x]))) );
 			
 			$s3->putObject([
-			//	'Bucket' => 'audio-tests-project',
-			//	'Key'    => $audioPath . $id . "-". $audioindex++ . '.' . @end((explode(".", $_FILES["question_audio"]["name"][$x]))),
-			//	'SourceFile' => $_FILES['question_audio']['tmp_name'][$x]			
+				'Bucket' => 'audio-tests-project',
+				'Key'    => $audioPath . $id . "-". $audioindex++ . '.' . @end((explode(".", $_FILES["question_audio"]["name"][$x]))),
+				'SourceFile' => $_FILES['question_audio']['tmp_name'][$x]			
 			]);
 		
 		}
