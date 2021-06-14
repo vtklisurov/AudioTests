@@ -100,7 +100,7 @@ for ($x = 0; $x <= count($_POST["type"])-1; $x++) {
 			
 			$s3->putObject([
 				'Bucket' => 'audio-tests-project',
-				'Key'    => "/Audio" . $id . "-". $audioindex++ . '.' . @end((explode(".", $_FILES["question_audio"]["name"][$x]))),
+				'Key'    => "Audio/" . $id . "-". $audioindex++ . '.' . @end((explode(".", $_FILES["question_audio"]["name"][$x]))),
 				'SourceFile' => $_FILES['question_audio']['tmp_name'][$x]			
 			]);
 		
@@ -117,21 +117,21 @@ for ($x = 0; $x <= count($_POST["type"])-1; $x++) {
 		//check the file types
 		if (isset($_FILES['answer1']['tmp_name'][$filequestion]) && $_FILES['answer1']['tmp_name'][$filequestion] != "") {
 			$mime = finfo_file($finfo, $_FILES['answer1']['tmp_name'][$filequestion]);
-			if ($mime != 'audio/mpeg') {
+			if ($mime != 'audio/mpeg' && $mime != "application/octet-stream") {
 				echo "Wrong file - not answer audio - " . $mime . " instead";
 				die();
 			}
 		}
 		if (isset($_FILES['answer2']['tmp_name'][$filequestion]) && $_FILES['answer2']['tmp_name'][$filequestion] != "") {
 			$mime = finfo_file($finfo, $_FILES['answer2']['tmp_name'][$filequestion]);
-			if ($mime != 'audio/mpeg') {
+			if ($mime != 'audio/mpeg' && $mime != "application/octet-stream") {
 				echo "Wrong file - not answer audio - " . $mime . " instead";
 				die();
 			}
 		}
 		if (isset($_FILES['answer3']['tmp_name'][$filequestion]) && $_FILES['answer3']['tmp_name'][$filequestion] != "") {
 			$mime = finfo_file($finfo, $_FILES['answer3']['tmp_name'][$filequestion]);
-			if ($mime != 'audio/mpeg') {
+			if ($mime != 'audio/mpeg' && $mime != "application/octet-stream") {
 				echo "Wrong file - not answer audio - " . $mime . " instead";
 				die();
 			}
@@ -165,23 +165,23 @@ for ($x = 0; $x <= count($_POST["type"])-1; $x++) {
 			//move_uploaded_file($_FILES["question_audio"]["tmp_name"][$x], $audioPath . $id . "-". $audioindex++ . '.' . @end((explode(".", $_FILES["question_audio"]["name"][$x]))) );
 			$s3->putObject([
 				'Bucket' => 'audio-tests-project',
-				'Key'    => "/Audio" . $id . "-". $audioindex++ . '.' . @end((explode(".", $_FILES["question_audio"]["name"][$x]))),
+				'Key'    => "Audio/" . $id . "-". $audioindex++ . '.' . @end((explode(".", $_FILES["question_audio"]["name"][$x]))),
 				'SourceFile' => $_FILES['question_audio']['tmp_name'][$x]			
 			]);
 		}
 		$s3->putObject([
 			'Bucket' => 'audio-tests-project',
-			'Key'    => "/Audio" . $id . "-". $audioindex++ . '.' . @end((explode(".", $_FILES["answer1"]["name"][$filequestion]))),
+			'Key'    => "Audio/" . $id . "-". $audioindex++ . '.' . @end((explode(".", $_FILES["answer1"]["name"][$filequestion]))),
 			'SourceFile' => $_FILES["answer1"]["tmp_name"][$filequestion]			
 		]);
 		$s3->putObject([
 			'Bucket' => 'audio-tests-project',
-			'Key'    => "/Audio" . $id . "-". $audioindex++ . '.' . @end((explode(".", $_FILES["answer2"]["name"][$filequestion]))),
+			'Key'    => "Audio/" . $id . "-". $audioindex++ . '.' . @end((explode(".", $_FILES["answer2"]["name"][$filequestion]))),
 			'SourceFile' => $_FILES["answer2"]["tmp_name"][$filequestion]			
 		]);
 		$s3->putObject([
 			'Bucket' => 'audio-tests-project',
-			'Key'    => "/Audio" . $id . "-". $audioindex++ . '.' . @end((explode(".", $_FILES["answer3"]["name"][$filequestion]))),
+			'Key'    => "Audio/" . $id . "-". $audioindex++ . '.' . @end((explode(".", $_FILES["answer3"]["name"][$filequestion]))),
 			'SourceFile' => $_FILES["answer3"]["tmp_name"][$filequestion]			
 		]);
 		//move_uploaded_file($_FILES["answer1"]["tmp_name"][$filequestion], $audioPath . $id . "-". $audioindex++ . '.' . @end((explode(".", $_FILES["answer1"]["name"][$filequestion]))) );
@@ -200,21 +200,21 @@ for ($x = 0; $x <= count($_POST["type"])-1; $x++) {
 		//check the file types
 		if (isset($_FILES['answer1']['tmp_name'][$filequestion]) && $_FILES['answer1']['tmp_name'][$filequestion] != "") {
 			$mime = finfo_file($finfo, $_FILES['answer1']['tmp_name'][$filequestion]);
-			if ($mime != 'image/jpeg') {
+			if ($mime != 'image/jpeg' && $mime != "application/octet-stream") {
 				echo "Wrong file - not an image - " . $mime . " instead";
 				die();
 			}
 		}
 		if (isset($_FILES['answer2']['tmp_name'][$filequestion]) && $_FILES['answer2']['tmp_name'][$filequestion] != "") {
 			$mime = finfo_file($finfo, $_FILES['answer2']['tmp_name'][$filequestion]);
-			if ($mime != 'image/jpeg') {
+			if ($mime != 'image/jpeg' && $mime != "application/octet-stream") {
 				echo "Wrong file - not an image - " . $mime . " instead";
 				die();
 			}
 		}
 		if (isset($_FILES['answer3']['tmp_name'][$filequestion]) && $_FILES['answer3']['tmp_name'][$filequestion] != "") {
 			$mime = finfo_file($finfo, $_FILES['answer3']['tmp_name'][$filequestion]);
-			if ($mime != 'image/jpeg') {
+			if ($mime != 'image/jpeg' && $mime != "application/octet-stream") {
 				echo "Wrong file - not an image - " . $mime . " instead" ;
 				die();
 			}
@@ -253,17 +253,17 @@ for ($x = 0; $x <= count($_POST["type"])-1; $x++) {
 		}
 		$s3->putObject([
 			'Bucket' => 'audio-tests-project',
-			'Key'    => "/Images" . $id . "-". $imageindex++ . '.' . @end((explode(".", $_FILES["answer1"]["name"][$filequestion]))),
+			'Key'    => "Images/" . $id . "-". $imageindex++ . '.' . @end((explode(".", $_FILES["answer1"]["name"][$filequestion]))),
 			'SourceFile' => $_FILES["answer1"]["tmp_name"][$filequestion]			
 		]);
 		$s3->putObject([
 			'Bucket' => 'audio-tests-project',
-			'Key'    => "/Images" . $id . "-". $imageindex++ . '.' . @end((explode(".", $_FILES["answer2"]["name"][$filequestion]))),
+			'Key'    => "Images/" . $id . "-". $imageindex++ . '.' . @end((explode(".", $_FILES["answer2"]["name"][$filequestion]))),
 			'SourceFile' => $_FILES["answer2"]["tmp_name"][$filequestion]			
 		]);
 		$s3->putObject([
 			'Bucket' => 'audio-tests-project',
-			'Key'    => "/Images" . $id . "-". $imageindex++ . '.' . @end((explode(".", $_FILES["answer3"]["name"][$filequestion]))),
+			'Key'    => "Images/" . $id . "-". $imageindex++ . '.' . @end((explode(".", $_FILES["answer3"]["name"][$filequestion]))),
 			'SourceFile' => $_FILES["answer3"]["tmp_name"][$filequestion]			
 		]);
 		
