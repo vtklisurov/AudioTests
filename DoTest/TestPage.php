@@ -7,6 +7,7 @@
 		<script src="test.js?6"></script>
 		<?php
 			include '../credentials.php';
+			require '../vendor/autoload.php';
 			$s3 = new Aws\S3\S3Client([
 				'region'  => 'us-east-1',
 				'version' => 'latest',
