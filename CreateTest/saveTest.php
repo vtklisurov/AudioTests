@@ -95,7 +95,7 @@ for ($x = 0; $x <= count($_POST["type"])-1; $x++) {
 		}
 		
 		//save the file if it exists
-		if (isset($_FILES['question_audio']['tmp_name'][$x])) {
+		if (isset($_FILES['question_audio']['tmp_name'][$x]) && $_FILES['question_audio']['tmp_name'][$x] != "") {
 			//move_uploaded_file($_FILES["question_audio"]["tmp_name"][$x], $audioPath . $id . "-". $audioindex++ . '.' . @end((explode(".", $_FILES["question_audio"]["name"][$x]))) );
 			
 			$s3->putObject([
